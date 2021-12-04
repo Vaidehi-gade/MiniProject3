@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            body {
+  font-family: sans-serif;
+  background: green;
+}
+h2 {
+  margin: 5px 0;
+}
+#wrapper {
+  width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+input {
+  margin: 5px 10px;
+}
+button {
+  font-size: 18px;
+  padding: 10px;
+  margin: 20px 0;
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  border-bottom: 3px solid #333;
+}
+#submit {
+  background: green;
+}
+#reset {
+  background: red;
+}
+#answer {
+  border: 1px dashed #ccc;
+  background: #eee;
+  padding: 10px;
+}
+        </style>
+    </head>
+    <body>
+
+        <form action="{% url 'result' %}">
+
+        {% csrf_token %}
+
+        <div id="wrapper">
+            <h1>What kind of personality are you?</h1>
+            <p>Take this questionnaire to find out!</p>
+            
+            <form id="quiz">
+              <!-- Question 1 -->
+              <h2>I have rich vocabulary</h2>
+              <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+              <!-- The value is which answer the choice corresponds to. -->
+              <label><input type="radio" name="q1" value="5">
+                Strongly agree
+              </label><br />
+              <label><input type="radio" name="q1" value="4">
+                Agree
+              </label><br />
+              <label><input type="radio" name="q1" value="3">
+                Neutral
+              </label><br />
+              <label><input type="radio" name="q1" value="2">
+                Disagree
+              </label><br />
+              <label><input type="radio" name="q1" value="1">
+                Strongly Disagree
+              </label><br />
+              
+          
+              <!-- Question 2 -->
+              <h2>I complete tasks successfully</h2>
+              <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+              <label><input type="radio" name="q2" value="5">
+                Strongly agree
+              </label><br />
+              <label><input type="radio" name="q2" value="3">
+                Neutral
+              </label><br />
+              <label><input type="radio" name="q2" value="1">
+                Strongly Disagree
+              </label><br />
+
+              <!-- Question 3 -->
+              <h2>I am the life of the party.</h2>
+              <!-- Choices for the third question -->
+              <label><input type="radio" name="q3" value="c1">
+                Strongly agree
+              </label><br />
+              <label><input type="radio" name="q3" value="c2">
+                Neutral
+              </label><br />
+              <label><input type="radio" name="q3" value="c3">
+                Strongly Disagree
+              </label><br />
+              
+              <!-- Question 4 -->
+              <h2>I am not interested in other people's problems</h2>
+              <!-- Choices for the fourth question -->
+              <label><input type="radio" name="q1" value="c1">
+                Strongly agree
+              </label><br />
+              <label><input type="radio" name="q1" value="c2">
+                Neutral
+              </label><br />
+              <label><input type="radio" name="q1" value="c3">
+                Strongly Disagree
+              </label><br />
+              
+              <!-- Question 5 -->
+              <h2>Am relaxed most of the time</h2>
+              <!-- Choices for the fourth question -->
+              <label><input type="radio" name="q1" value="c1">
+                Strongly agree
+              </label><br />
+              <label><input type="radio" name="q1" value="c2">
+                Neutral
+              </label><br />
+              <label><input type="radio" name="q1" value="c3">
+                Strongly Disagree
+              </label><br />
+              
+              <button type="submit" id="submit" onclick="tabulateAnswers()">Submit Your Answers</button>
+            <button type="reset" id="reset" onclick="resetAnswer()">Reset</button>
+            </form>
+            
+            
+            <div id="answer">Your result will show up here!</div>
+          </div>
+    </body>
+</html>
